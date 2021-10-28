@@ -38,7 +38,7 @@
 }
 
 .samples img:hover {
-    border: 5px solid orange;
+    border: 2px solid orange;
     opacity: 0.7;
     transition: opacity .25s ease-in-out;
 }
