@@ -3,6 +3,8 @@ import "./Body.css";
 import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 
+import { UilShoppingCart } from "@iconscout/react-unicons"
+
 function Body() {
   // state for changing the picture
 //   const [picture, setPicture] = useState(1);
@@ -41,7 +43,7 @@ function Body() {
       <div className="big-img">
         <img className="large" src={big.url} alt="bigimage" />
       </div>
-      
+
         <div className="samples">
           {smallImages.map((item) => (
             <>
@@ -90,7 +92,9 @@ function Body() {
               className="counter-sign"
             />
           </div>
-          <button>Add to cart</button>
+          <button> 
+              <UilShoppingCart className="cartIcon" /> Add to cart
+            </button>
         </div>
       </div>
     </div>

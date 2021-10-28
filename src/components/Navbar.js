@@ -1,6 +1,8 @@
 import React from 'react'
 import './Navbar.css'
 
+import { UilShoppingCart } from "@iconscout/react-unicons"
+
 function Navbar() {
     return (
         <div >
@@ -24,7 +26,7 @@ function Navbar() {
                 </ul>
 
                 <div className="icons">
-                <img src="/img/cart-icon.png" alt="a shopping cart" className="cart" />
+                <  UilShoppingCart alt="a shopping cart" className="cart" /> 
                 <img src="/img/profile-avi.png" alt="profile avi" className="profile"/>
                 </div>
             </nav>
