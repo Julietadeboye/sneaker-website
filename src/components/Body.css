@@ -107,7 +107,7 @@
       border: none;
       text-align: center;
       background-color:rgb(241, 241, 241);
-      padding: .6em 0;
+      padding: .3em 0;
       font-size: large;
       font-weight: bold;
       outline: none;
@@ -120,7 +120,7 @@
 
   .counter-sign {
     border: none;
-    width: 33.3%;
+    width: 33%;
     background-color:rgb(241, 241, 241);
     padding: .5em 0;
     font-size: larger;
@@ -136,7 +136,7 @@
     border-radius: 1em;
     font-weight: bold;
     margin-left: 1em;
-    padding-top: 0;
+    padding: 0;
     font-size: large;
   }
 

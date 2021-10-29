@@ -35,6 +35,17 @@ function Body() {
     },
   ];
 
+
+  const [count, setCount] = useState(0);
+
+  const minusCount = () => {
+    setCount(count - 1);
+  }
+ 
+  const plusCount = () => {
+    setCount(count + 1);
+  }
+
   return (
     <div className="body">
 
@@ -73,24 +84,9 @@ function Body() {
 
         <div className="container">
           <div className="counter">
-            <input
-              type="button"
-              onclick="decrementValue()"
-              value="-"
-              className="counter-sign"
-            />
-            <input
-              type="text"
-              name="quantity"
-              value="0"
-              className="counter-text"
-            />
-            <input
-              type="button"
-              onclick="incrementValue()"
-              value="+"
-              className="counter-sign"
-            />
+              <button className="counter-sign" onClick={minusCount}>-</button>
+              <span className="counter-text">{count}</span>
+              <button className="counter-sign" onClick={plusCount}>+</button>
           </div>
           <button> 
               <UilShoppingCart className="cartIcon" /> Add to cart
