@@ -3,15 +3,17 @@ import "./Body.css";
 import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 
-import { UilShoppingCart } from "@iconscout/react-unicons"
+import { UilShoppingCart } from "@iconscout/react-unicons";
 
 function Body() {
   // state for changing the picture
-//   const [picture, setPicture] = useState(1);
+  //   const [picture, setPicture] = useState(1);
   const [big, setBig] = useState({ id: 1, url: "/img/img1.jpg" });
 
   //5 sets of pictures
   // 1 large
+
+  const product = { big };
 
   const smallImages = [
     {
@@ -35,25 +37,52 @@ function Body() {
     },
   ];
 
-
   const [count, setCount] = useState(0);
+
+  
 
   const minusCount = () => {
     setCount(count - 1);
-  }
- 
+  };
+
   const plusCount = () => {
     setCount(count + 1);
-  }
+  };
+
+  useEffect(() => {
+      // If count is less than 0, setCount to 0
+      // while checking for count
+      if (count < 0){
+        setCount(0)
+      }
+    }, [count])
+
+  const [cartItems, setCartItems] = useState([]);
+
+
+
+// Add the number of items in the cart to the cart icon
+console.log(cartItems.length);
+
+  const addToCart = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
 
   return (
     <div className="body">
-
       <div className="images">
-
-      <div className="big-img">
-        <img className="large" src={big.url} alt="bigimage" />
-      </div>
+        <div className="big-img">
+          <img className="large" src={big.url} alt="bigimage" />
+        </div>
 
         <div className="samples">
           {smallImages.map((item) => (
@@ -84,17 +113,22 @@ function Body() {
 
         <div className="container">
           <div className="counter">
-              <button className="counter-sign" onClick={minusCount}>-</button>
-              <span className="counter-text">{count}</span>
-              <button className="counter-sign" onClick={plusCount}>+</button>
-          </div>
-          <button> 
-              <UilShoppingCart className="cartIcon" /> Add to cart
+            <button className="counter-sign" onClick={minusCount}>
+              -
             </button>
+            <span className="counter-text">{count}</span>
+            <button className="counter-sign" onClick={plusCount}>
+              +
+            </button>
+          </div>
+          <button className='cart_button' onClick={addToCart}>
+            <UilShoppingCart className="cartIcon" /> 
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Body;
